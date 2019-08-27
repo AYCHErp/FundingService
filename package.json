@@ -1,0 +1,21 @@
+{
+  "name": "hapi-tut",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "^7.4.3",
+    "@hapi/hapi": "^18.3.2",
+    "@hapi/hoek": "^8.2.1",
+    "async": "^3.1.0",
+    "ethers": "^4.0.36",
+    "nano": "^8.1.0"
+  }
+}

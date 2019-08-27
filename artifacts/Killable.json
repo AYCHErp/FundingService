@@ -1,0 +1,1671 @@
+{
+  "contractName": "Killable",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "guard",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "grave",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_src",
+          "type": "address"
+        },
+        {
+          "name": "_sig",
+          "type": "bytes4"
+        }
+      ],
+      "name": "isAuthorized",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_guard",
+          "type": "address"
+        }
+      ],
+      "name": "setGuard",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_guard",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "grave",
+          "type": "address"
+        }
+      ],
+      "name": "SetGrave",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "recipient",
+          "type": "address"
+        }
+      ],
+      "name": "Kill",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "setBy",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "guard",
+          "type": "address"
+        }
+      ],
+      "name": "SetGuard",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_grave",
+          "type": "address"
+        }
+      ],
+      "name": "setGrave",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "kill",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.10+commit.5a6ea5b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_grave\",\"type\":\"address\"}],\"name\":\"setGrave\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"kill\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"guard\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"grave\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"_src\",\"type\":\"address\"},{\"name\":\"_sig\",\"type\":\"bytes4\"}],\"name\":\"isAuthorized\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_guard\",\"type\":\"address\"}],\"name\":\"setGuard\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"_guard\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"grave\",\"type\":\"address\"}],\"name\":\"SetGrave\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"Kill\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"setBy\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"guard\",\"type\":\"address\"}],\"name\":\"SetGuard\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{\"constructor\":{\"details\":\"Constructor\",\"params\":{\"_guard\":\"Address of a guard implementation\"}},\"isAuthorized(address,bytes4)\":{\"details\":\"The check performed by calling `canCall` on the Guard instance. If no Guard instance is configured, function returns false (as a failsafe).\",\"params\":{\"_sig\":\"The function selector of the function being called.\",\"_src\":\"The address of the caller.\"},\"return\":\"True, if the caller is authorized to make the call.\"},\"setGuard(address)\":{\"params\":{\"_guard\":\"The address of the new Guard instance.\"}}}},\"userdoc\":{\"methods\":{\"isAuthorized(address,bytes4)\":{\"notice\":\"isAuthorized will return `true` if `_src` address can call the function with the `_sig` function selector in the current context (in this contract).\"},\"setGrave(address)\":{\"notice\":\"//\"},\"setGuard(address)\":{\"notice\":\"setGuard will set the new Guard instance. The caller must have permissions to call this function in the current Guard instance.\"}}}},\"settings\":{\"compilationTarget\":{\"/home/ohm/dev/dsb/smart-contracts/contracts/lifecycle/Killable.sol\":\"Killable\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/ohm/dev/dsb/smart-contracts/contracts/interfaces/IGuard.sol\":{\"keccak256\":\"0x685e7d50a6c5ce54589a403c03e921e2a79f215b0da5cc8b5c63cee00bf325a1\",\"urls\":[\"bzzr://56d5cf8533ac7f44ff829771201d7ff17b03aea5e70231a1a1eee11c3f127cf5\",\"dweb:/ipfs/QmUjgpVXK5ZnS6MrTdChUVdEGhq67aZgUjRkxHN2MvXAcB\"]},\"/home/ohm/dev/dsb/smart-contracts/contracts/lifecycle/Killable.sol\":{\"keccak256\":\"0xc853aabc9c5d75194e5054974021e4008304f42d316f159b3eea72b89d735afa\",\"urls\":[\"bzzr://d17a1e7c74f9047e346655fa2a0a6e39fb613f707e7e15f13a7bcb7597b395df\",\"dweb:/ipfs/QmeHxHpSjiHDvQ9cUfNASoyrQ7fdSdRQ7CwbBFipYx6YxP\"]},\"/home/ohm/dev/dsb/smart-contracts/contracts/permissions/AuthChecker.sol\":{\"keccak256\":\"0xccb07d0c8687544ec1500c33a734166ab9af628b5dfe0181ceb0160334fd4d8d\",\"urls\":[\"bzzr://651d88efe84e66f1555d16b839723eb47917fe1e0b94bcc14c9100ac23aed677\",\"dweb:/ipfs/QmcxJb2DtArAzKeckhHK1D9JcVHPpUtXtG2eDXvVVTQWiJ\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161050c38038061050c8339818101604052602081101561003357600080fd5b505180610048816001600160e01b0361004f16565b505061009a565b600080546001600160a01b0319166001600160a01b0383169081178255604051909133917fa1a6a6164848fdba82d01d50ad73927295d9d4ccfba42020625dd3d7320673909190a350565b610463806100a96000396000f3fe608060405234801561001057600080fd5b50600436106100625760003560e01c80632ad722e21461006757806341c0e1b51461008f5780637ceab3b114610097578063a41cd034146100bb578063d9972b96146100c3578063e19a9dd91461010d575b600080fd5b61008d6004803603602081101561007d57600080fd5b50356001600160a01b0316610133565b005b61008d6101a2565b61009f61024b565b604080516001600160a01b039092168252519081900360200190f35b61009f61025a565b6100f9600480360360408110156100d957600080fd5b5080356001600160a01b031690602001356001600160e01b031916610269565b604080519115158252519081900360200190f35b61008d6004803603602081101561012357600080fd5b50356001600160a01b031661027e565b610149336000356001600160e01b031916610269565b610196576040805162461bcd60e51b8152602060048201526019602482015278185d5d1a0b58da1958dad95c8b5d5b985d5d1a1bdc9a5e9959603a1b604482015290519081900360640190fd5b61019f816102ea565b50565b6101b8336000356001600160e01b031916610269565b610205576040805162461bcd60e51b8152602060048201526019602482015278185d5d1a0b58da1958dad95c8b5d5b985d5d1a1bdc9a5e9959603a1b604482015290519081900360640190fd5b6001546040516001600160a01b03909116907f4b989c8e96b2b5c3aaa80c31769c41b11af9675189b0e4f6b49b82938db9afb490600090a26001546001600160a01b0316ff5b6000546001600160a01b031681565b6001546001600160a01b031681565b60006102758383610334565b90505b92915050565b610294336000356001600160e01b031916610269565b6102e1576040805162461bcd60e51b8152602060048201526019602482015278185d5d1a0b58da1958dad95c8b5d5b985d5d1a1bdc9a5e9959603a1b604482015290519081900360640190fd5b61019f816103e3565b600180546001600160a01b0319166001600160a01b0383169081179091556040517f4599eb158eb043de29b894d2596261ae96527bd3bc93cb5a7885f591fdd2fa8a90600090a250565b600080546001600160a01b031661034d57506000610278565b6000546040805163b700961360e01b81526001600160a01b0386811660048301523060248301526001600160e01b0319861660448301529151919092169163b7009613916064808301926020929190829003018186803b1580156103b057600080fd5b505afa1580156103c4573d6000803e3d6000fd5b505050506040513d60208110156103da57600080fd5b50519392505050565b600080546001600160a01b0319166001600160a01b0383169081178255604051909133917fa1a6a6164848fdba82d01d50ad73927295d9d4ccfba42020625dd3d7320673909190a35056fea265627a7a723058206982dbb6fe17cf7df8d1d6f69826515543046e72f27fba52ad932f2f1661c21e64736f6c634300050a0032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100625760003560e01c80632ad722e21461006757806341c0e1b51461008f5780637ceab3b114610097578063a41cd034146100bb578063d9972b96146100c3578063e19a9dd91461010d575b600080fd5b61008d6004803603602081101561007d57600080fd5b50356001600160a01b0316610133565b005b61008d6101a2565b61009f61024b565b604080516001600160a01b039092168252519081900360200190f35b61009f61025a565b6100f9600480360360408110156100d957600080fd5b5080356001600160a01b031690602001356001600160e01b031916610269565b604080519115158252519081900360200190f35b61008d6004803603602081101561012357600080fd5b50356001600160a01b031661027e565b610149336000356001600160e01b031916610269565b610196576040805162461bcd60e51b8152602060048201526019602482015278185d5d1a0b58da1958dad95c8b5d5b985d5d1a1bdc9a5e9959603a1b604482015290519081900360640190fd5b61019f816102ea565b50565b6101b8336000356001600160e01b031916610269565b610205576040805162461bcd60e51b8152602060048201526019602482015278185d5d1a0b58da1958dad95c8b5d5b985d5d1a1bdc9a5e9959603a1b604482015290519081900360640190fd5b6001546040516001600160a01b03909116907f4b989c8e96b2b5c3aaa80c31769c41b11af9675189b0e4f6b49b82938db9afb490600090a26001546001600160a01b0316ff5b6000546001600160a01b031681565b6001546001600160a01b031681565b60006102758383610334565b90505b92915050565b610294336000356001600160e01b031916610269565b6102e1576040805162461bcd60e51b8152602060048201526019602482015278185d5d1a0b58da1958dad95c8b5d5b985d5d1a1bdc9a5e9959603a1b604482015290519081900360640190fd5b61019f816103e3565b600180546001600160a01b0319166001600160a01b0383169081179091556040517f4599eb158eb043de29b894d2596261ae96527bd3bc93cb5a7885f591fdd2fa8a90600090a250565b600080546001600160a01b031661034d57506000610278565b6000546040805163b700961360e01b81526001600160a01b0386811660048301523060248301526001600160e01b0319861660448301529151919092169163b7009613916064808301926020929190829003018186803b1580156103b057600080fd5b505afa1580156103c4573d6000803e3d6000fd5b505050506040513d60208110156103da57600080fd5b50519392505050565b600080546001600160a01b0319166001600160a01b0383169081178255604051909133917fa1a6a6164848fdba82d01d50ad73927295d9d4ccfba42020625dd3d7320673909190a35056fea265627a7a723058206982dbb6fe17cf7df8d1d6f69826515543046e72f27fba52ad932f2f1661c21e64736f6c634300050a0032",
+  "sourceMap": "68:952:14:-;;;524:57;8:9:-1;5:2;;;30:1;27;20:12;5:2;524:57:14;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;524:57:14;;1406:17:27;524:57:14;-1:-1:-1;;;;;1406:9:27;:17;:::i;:::-;1361:69;524:57:14;68:952;;2616:138:27;2682:5;:22;;-1:-1:-1;;;;;;2682:22:27;-1:-1:-1;;;;;2682:22:27;;;;;;;2719:28;;2682:22;;2728:10;;2719:28;;2682:5;2719:28;2616:138;:::o;68:952:14:-;;;;;;;",
+  "deployedSourceMap": "68:952:14:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;68:952:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;647:98;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;647:98:14;-1:-1:-1;;;;;647:98:14;;:::i;:::-;;751:100;;;:::i;412:19:27:-;;;:::i;:::-;;;;-1:-1:-1;;;;;412:19:27;;;;;;;;;;;;;;186:28:14;;;:::i;2409:153:27:-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;2409:153:27;;-1:-1:-1;;;;;2409:153:27;;;;;-1:-1:-1;;;;;;2409:153:27;;:::i;:::-;;;;;;;;;;;;;;;;;;1710:110;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1710:110:27;-1:-1:-1;;;;;1710:110:27;;:::i;647:98:14:-;989:33:27;1002:10;1014:7;;-1:-1:-1;;;;;;1014:7:27;989:12;:33::i;:::-;981:71;;;;;-1:-1:-1;;;981:71:27;;;;;;;;;;;;-1:-1:-1;;;981:71:27;;;;;;;;;;;;;;;721:17:14;731:6;721:9;:17::i;:::-;647:98;:::o;751:100::-;989:33:27;1002:10;1014:7;;-1:-1:-1;;;;;;1014:7:27;989:12;:33::i;:::-;981:71;;;;;-1:-1:-1;;;981:71:27;;;;;;;;;;;;-1:-1:-1;;;981:71:27;;;;;;;;;;;;;;;809:5:14;;804:11;;-1:-1:-1;;;;;809:5:14;;;;804:11;;809:5;;804:11;838:5;;-1:-1:-1;;;;;838:5:14;825:19;412::27;;;-1:-1:-1;;;;;412:19:27;;:::o;186:28:14:-;;;-1:-1:-1;;;;;186:28:14;;:::o;2409:153:27:-;2503:4;2530:25;2544:4;2550;2530:13;:25::i;:::-;2523:32;;2409:153;;;;;:::o;1710:110::-;989:33;1002:10;1014:7;;-1:-1:-1;;;;;;1014:7:27;989:12;:33::i;:::-;981:71;;;;;-1:-1:-1;;;981:71:27;;;;;;;;;;;;-1:-1:-1;;;981:71:27;;;;;;;;;;;;;;;1796:17;1806:6;1796:9;:17::i;904:114:14:-;966:5;:14;;-1:-1:-1;;;;;;966:14:14;-1:-1:-1;;;;;966:14:14;;;;;;;;995:16;;;;-1:-1:-1;;995:16:14;904:114;:::o;2760:306:27:-;2857:4;2894:5;;-1:-1:-1;;;;;2894:5:27;2877:126;;-1:-1:-1;2922:5:27;2915:12;;2877:126;3019:5;;:40;;;-1:-1:-1;;;3019:40:27;;-1:-1:-1;;;;;3019:40:27;;;;;;;3047:4;3019:40;;;;-1:-1:-1;;;;;;3019:40:27;;;;;;;;:5;;;;;:13;;:40;;;;;;;;;;;;;;:5;:40;;;5:2:-1;;;;30:1;27;20:12;5:2;3019:40:27;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;3019:40:27;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;3019:40:27;;2760:306;-1:-1:-1;;;2760:306:27:o;2616:138::-;2682:5;:22;;-1:-1:-1;;;;;;2682:22:27;-1:-1:-1;;;;;2682:22:27;;;;;;;2719:28;;2682:22;;2728:10;;2719:28;;2682:5;2719:28;2616:138;:::o",
+  "source": "pragma solidity ^0.5.10;\n\nimport \"../permissions/AuthChecker.sol\";\n\ncontract Killable is AuthChecker {\n\n    /////\n    // State data\n    /////\n\n    // the address to self-destruct to\n    address payable public grave;\n\n    /////\n    // Events\n    /////\n\n    event SetGrave(address indexed grave);\n    event Kill(address indexed recipient);\n\n    /////\n    // Constructor\n    /////\n\n    /**\n    * @dev Constructor\n    * @param _guard Address of a guard implementation\n    */\n    // solhint-disable-next-line no-empty-blocks\n    constructor(address _guard) public AuthChecker(_guard) {}\n\n    /////\n    // Externally authorized functions\n    /////\n\n    function setGrave(address payable _grave) public onlyAuthorized {\n        _setGrave(_grave);\n    }\n\n    function kill() public onlyAuthorized {\n        emit Kill(grave);\n        selfdestruct(grave);\n    }\n\n    /////\n    // Internal functions\n    /////\n\n    function _setGrave(address payable _grave) internal {\n        grave = _grave;\n        emit SetGrave(_grave);\n    }\n}\n",
+  "sourcePath": "/home/ohm/dev/dsb/smart-contracts/contracts/lifecycle/Killable.sol",
+  "ast": {
+    "absolutePath": "/home/ohm/dev/dsb/smart-contracts/contracts/lifecycle/Killable.sol",
+    "exportedSymbols": {
+      "Killable": [
+        1769
+      ]
+    },
+    "id": 1770,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1706,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:14"
+      },
+      {
+        "absolutePath": "/home/ohm/dev/dsb/smart-contracts/contracts/permissions/AuthChecker.sol",
+        "file": "../permissions/AuthChecker.sol",
+        "id": 1707,
+        "nodeType": "ImportDirective",
+        "scope": 1770,
+        "sourceUnit": 3662,
+        "src": "26:40:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1708,
+              "name": "AuthChecker",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3661,
+              "src": "89:11:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AuthChecker_$3661",
+                "typeString": "contract AuthChecker"
+              }
+            },
+            "id": 1709,
+            "nodeType": "InheritanceSpecifier",
+            "src": "89:11:14"
+          }
+        ],
+        "contractDependencies": [
+          3661
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1769,
+        "linearizedBaseContracts": [
+          1769,
+          3661
+        ],
+        "name": "Killable",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1711,
+            "name": "grave",
+            "nodeType": "VariableDeclaration",
+            "scope": 1769,
+            "src": "186:28:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address_payable",
+              "typeString": "address payable"
+            },
+            "typeName": {
+              "id": 1710,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "186:15:14",
+              "stateMutability": "payable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address_payable",
+                "typeString": "address payable"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": "//",
+            "id": 1715,
+            "name": "SetGrave",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1714,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1713,
+                  "indexed": true,
+                  "name": "grave",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1715,
+                  "src": "271:21:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1712,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "271:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "270:23:14"
+            },
+            "src": "256:38:14"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 1719,
+            "name": "Kill",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1718,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1717,
+                  "indexed": true,
+                  "name": "recipient",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1719,
+                  "src": "310:25:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1716,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "310:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "309:27:14"
+            },
+            "src": "299:38:14"
+          },
+          {
+            "body": {
+              "id": 1727,
+              "nodeType": "Block",
+              "src": "579:2:14",
+              "statements": []
+            },
+            "documentation": "@dev Constructor\n@param _guard Address of a guard implementation",
+            "id": 1728,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 1724,
+                    "name": "_guard",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 1721,
+                    "src": "571:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 1725,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1723,
+                  "name": "AuthChecker",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3661,
+                  "src": "559:11:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_AuthChecker_$3661_$",
+                    "typeString": "type(contract AuthChecker)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "559:19:14"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1722,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1721,
+                  "name": "_guard",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1728,
+                  "src": "536:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1720,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "536:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "535:16:14"
+            },
+            "returnParameters": {
+              "id": 1726,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "579:0:14"
+            },
+            "scope": 1769,
+            "src": "524:57:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1739,
+              "nodeType": "Block",
+              "src": "711:34:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 1736,
+                        "name": "_grave",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1730,
+                        "src": "731:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 1735,
+                      "name": "_setGrave",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1768,
+                      "src": "721:9:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_payable_$returns$__$",
+                        "typeString": "function (address payable)"
+                      }
+                    },
+                    "id": 1737,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "721:17:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1738,
+                  "nodeType": "ExpressionStatement",
+                  "src": "721:17:14"
+                }
+              ]
+            },
+            "documentation": "//",
+            "id": 1740,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 1733,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1732,
+                  "name": "onlyAuthorized",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3577,
+                  "src": "696:14:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "696:14:14"
+              }
+            ],
+            "name": "setGrave",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1731,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1730,
+                  "name": "_grave",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1740,
+                  "src": "665:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "typeName": {
+                    "id": 1729,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "665:15:14",
+                    "stateMutability": "payable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "664:24:14"
+            },
+            "returnParameters": {
+              "id": 1734,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "711:0:14"
+            },
+            "scope": 1769,
+            "src": "647:98:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1753,
+              "nodeType": "Block",
+              "src": "789:62:14",
+              "statements": [
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 1746,
+                        "name": "grave",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1711,
+                        "src": "809:5:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 1745,
+                      "name": "Kill",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1719,
+                      "src": "804:4:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 1747,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "804:11:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1748,
+                  "nodeType": "EmitStatement",
+                  "src": "799:16:14"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 1750,
+                        "name": "grave",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1711,
+                        "src": "838:5:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 1749,
+                      "name": "selfdestruct",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4306,
+                      "src": "825:12:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_payable_$returns$__$",
+                        "typeString": "function (address payable)"
+                      }
+                    },
+                    "id": 1751,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "825:19:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1752,
+                  "nodeType": "ExpressionStatement",
+                  "src": "825:19:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1754,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 1743,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1742,
+                  "name": "onlyAuthorized",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3577,
+                  "src": "774:14:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "774:14:14"
+              }
+            ],
+            "name": "kill",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1741,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "764:2:14"
+            },
+            "returnParameters": {
+              "id": 1744,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "789:0:14"
+            },
+            "scope": 1769,
+            "src": "751:100:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1767,
+              "nodeType": "Block",
+              "src": "956:62:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1761,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 1759,
+                      "name": "grave",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1711,
+                      "src": "966:5:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 1760,
+                      "name": "_grave",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1756,
+                      "src": "974:6:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "966:14:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "id": 1762,
+                  "nodeType": "ExpressionStatement",
+                  "src": "966:14:14"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 1764,
+                        "name": "_grave",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1756,
+                        "src": "1004:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 1763,
+                      "name": "SetGrave",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1715,
+                      "src": "995:8:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 1765,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "995:16:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1766,
+                  "nodeType": "EmitStatement",
+                  "src": "990:21:14"
+                }
+              ]
+            },
+            "documentation": "//",
+            "id": 1768,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_setGrave",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1757,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1756,
+                  "name": "_grave",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1768,
+                  "src": "923:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "typeName": {
+                    "id": 1755,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "923:15:14",
+                    "stateMutability": "payable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "922:24:14"
+            },
+            "returnParameters": {
+              "id": 1758,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "956:0:14"
+            },
+            "scope": 1769,
+            "src": "904:114:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1770,
+        "src": "68:952:14"
+      }
+    ],
+    "src": "0:1021:14"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/ohm/dev/dsb/smart-contracts/contracts/lifecycle/Killable.sol",
+    "exportedSymbols": {
+      "Killable": [
+        1769
+      ]
+    },
+    "id": 1770,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1706,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:14"
+      },
+      {
+        "absolutePath": "/home/ohm/dev/dsb/smart-contracts/contracts/permissions/AuthChecker.sol",
+        "file": "../permissions/AuthChecker.sol",
+        "id": 1707,
+        "nodeType": "ImportDirective",
+        "scope": 1770,
+        "sourceUnit": 3662,
+        "src": "26:40:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1708,
+              "name": "AuthChecker",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3661,
+              "src": "89:11:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AuthChecker_$3661",
+                "typeString": "contract AuthChecker"
+              }
+            },
+            "id": 1709,
+            "nodeType": "InheritanceSpecifier",
+            "src": "89:11:14"
+          }
+        ],
+        "contractDependencies": [
+          3661
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1769,
+        "linearizedBaseContracts": [
+          1769,
+          3661
+        ],
+        "name": "Killable",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1711,
+            "name": "grave",
+            "nodeType": "VariableDeclaration",
+            "scope": 1769,
+            "src": "186:28:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address_payable",
+              "typeString": "address payable"
+            },
+            "typeName": {
+              "id": 1710,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "186:15:14",
+              "stateMutability": "payable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address_payable",
+                "typeString": "address payable"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": "//",
+            "id": 1715,
+            "name": "SetGrave",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1714,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1713,
+                  "indexed": true,
+                  "name": "grave",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1715,
+                  "src": "271:21:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1712,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "271:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "270:23:14"
+            },
+            "src": "256:38:14"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 1719,
+            "name": "Kill",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1718,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1717,
+                  "indexed": true,
+                  "name": "recipient",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1719,
+                  "src": "310:25:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1716,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "310:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "309:27:14"
+            },
+            "src": "299:38:14"
+          },
+          {
+            "body": {
+              "id": 1727,
+              "nodeType": "Block",
+              "src": "579:2:14",
+              "statements": []
+            },
+            "documentation": "@dev Constructor\n@param _guard Address of a guard implementation",
+            "id": 1728,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 1724,
+                    "name": "_guard",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 1721,
+                    "src": "571:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 1725,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1723,
+                  "name": "AuthChecker",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3661,
+                  "src": "559:11:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_AuthChecker_$3661_$",
+                    "typeString": "type(contract AuthChecker)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "559:19:14"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1722,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1721,
+                  "name": "_guard",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1728,
+                  "src": "536:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1720,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "536:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "535:16:14"
+            },
+            "returnParameters": {
+              "id": 1726,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "579:0:14"
+            },
+            "scope": 1769,
+            "src": "524:57:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1739,
+              "nodeType": "Block",
+              "src": "711:34:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 1736,
+                        "name": "_grave",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1730,
+                        "src": "731:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 1735,
+                      "name": "_setGrave",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1768,
+                      "src": "721:9:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_payable_$returns$__$",
+                        "typeString": "function (address payable)"
+                      }
+                    },
+                    "id": 1737,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "721:17:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1738,
+                  "nodeType": "ExpressionStatement",
+                  "src": "721:17:14"
+                }
+              ]
+            },
+            "documentation": "//",
+            "id": 1740,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 1733,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1732,
+                  "name": "onlyAuthorized",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3577,
+                  "src": "696:14:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "696:14:14"
+              }
+            ],
+            "name": "setGrave",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1731,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1730,
+                  "name": "_grave",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1740,
+                  "src": "665:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "typeName": {
+                    "id": 1729,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "665:15:14",
+                    "stateMutability": "payable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "664:24:14"
+            },
+            "returnParameters": {
+              "id": 1734,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "711:0:14"
+            },
+            "scope": 1769,
+            "src": "647:98:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1753,
+              "nodeType": "Block",
+              "src": "789:62:14",
+              "statements": [
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 1746,
+                        "name": "grave",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1711,
+                        "src": "809:5:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 1745,
+                      "name": "Kill",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1719,
+                      "src": "804:4:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 1747,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "804:11:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1748,
+                  "nodeType": "EmitStatement",
+                  "src": "799:16:14"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 1750,
+                        "name": "grave",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1711,
+                        "src": "838:5:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 1749,
+                      "name": "selfdestruct",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4306,
+                      "src": "825:12:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_payable_$returns$__$",
+                        "typeString": "function (address payable)"
+                      }
+                    },
+                    "id": 1751,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "825:19:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1752,
+                  "nodeType": "ExpressionStatement",
+                  "src": "825:19:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1754,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 1743,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1742,
+                  "name": "onlyAuthorized",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3577,
+                  "src": "774:14:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "774:14:14"
+              }
+            ],
+            "name": "kill",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1741,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "764:2:14"
+            },
+            "returnParameters": {
+              "id": 1744,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "789:0:14"
+            },
+            "scope": 1769,
+            "src": "751:100:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1767,
+              "nodeType": "Block",
+              "src": "956:62:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1761,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 1759,
+                      "name": "grave",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1711,
+                      "src": "966:5:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 1760,
+                      "name": "_grave",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1756,
+                      "src": "974:6:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "966:14:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "id": 1762,
+                  "nodeType": "ExpressionStatement",
+                  "src": "966:14:14"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 1764,
+                        "name": "_grave",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1756,
+                        "src": "1004:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 1763,
+                      "name": "SetGrave",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1715,
+                      "src": "995:8:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 1765,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "995:16:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1766,
+                  "nodeType": "EmitStatement",
+                  "src": "990:21:14"
+                }
+              ]
+            },
+            "documentation": "//",
+            "id": 1768,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_setGrave",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1757,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1756,
+                  "name": "_grave",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1768,
+                  "src": "923:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "typeName": {
+                    "id": 1755,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "923:15:14",
+                    "stateMutability": "payable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "922:24:14"
+            },
+            "returnParameters": {
+              "id": 1758,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "956:0:14"
+            },
+            "scope": 1769,
+            "src": "904:114:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1770,
+        "src": "68:952:14"
+      }
+    ],
+    "src": "0:1021:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.10+commit.5a6ea5b1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-08-17T01:13:52.686Z",
+  "devdoc": {
+    "methods": {
+      "constructor": {
+        "details": "Constructor",
+        "params": {
+          "_guard": "Address of a guard implementation"
+        }
+      },
+      "isAuthorized(address,bytes4)": {
+        "details": "The check performed by calling `canCall` on the Guard instance. If no Guard instance is configured, function returns false (as a failsafe).",
+        "params": {
+          "_sig": "The function selector of the function being called.",
+          "_src": "The address of the caller."
+        },
+        "return": "True, if the caller is authorized to make the call."
+      },
+      "setGuard(address)": {
+        "params": {
+          "_guard": "The address of the new Guard instance."
+        }
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {
+      "isAuthorized(address,bytes4)": {
+        "notice": "isAuthorized will return `true` if `_src` address can call the function with the `_sig` function selector in the current context (in this contract)."
+      },
+      "setGrave(address)": {
+        "notice": "//"
+      },
+      "setGuard(address)": {
+        "notice": "setGuard will set the new Guard instance. The caller must have permissions to call this function in the current Guard instance."
+      }
+    }
+  }
+}

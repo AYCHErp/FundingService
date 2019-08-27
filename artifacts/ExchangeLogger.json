@@ -1,0 +1,1038 @@
+{
+  "contractName": "ExchangeLogger",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "burnHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "dstCurrency",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "dstValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "LogExchange",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_burnHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "_dstCurrency",
+          "type": "bytes32"
+        },
+        {
+          "name": "_dstValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "logExchange",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.10+commit.5a6ea5b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_burnHash\",\"type\":\"bytes32\"},{\"name\":\"_dstCurrency\",\"type\":\"bytes32\"},{\"name\":\"_dstValue\",\"type\":\"uint256\"}],\"name\":\"logExchange\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"burnHash\",\"type\":\"bytes32\"},{\"indexed\":true,\"name\":\"dstCurrency\",\"type\":\"bytes32\"},{\"indexed\":true,\"name\":\"dstValue\",\"type\":\"uint256\"}],\"name\":\"LogExchange\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}],\"devdoc\":{\"author\":\"Disberse LTD\",\"methods\":{\"isOwner()\":{\"details\":\"Returns true if the caller is the current owner.\"},\"logExchange(bytes32,bytes32,uint256)\":{\"details\":\"Logs data related to an external currency conversion after a redeem\",\"params\":{\"_burnHash\":\"The identifier of the specific burn event correlated with the currency conversion\",\"_dstCurrency\":\"The currency that the funds were converted into\",\"_dstValue\":\"The value of the transferred funds, denominated in dstCurrency\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"ExchangeLogger\"},\"userdoc\":{\"methods\":{},\"notice\":\"Contract for logging exchange rates for particular burn events asynchronously\"}},\"settings\":{\"compilationTarget\":{\"/home/ohm/dev/dsb/121-smart-contracts/contracts/ExchangeLogger.sol\":\"ExchangeLogger\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/ohm/dev/dsb/121-smart-contracts/contracts/ExchangeLogger.sol\":{\"keccak256\":\"0x9f6dde8b5baa41c5684550d01fb956790c6636688985c59ab43248249b377843\",\"urls\":[\"bzzr://03e7a68cbfb41940e5c7c31c8a0fdbc6ba3bd3cb3909579389bd5ad81fcfef54\",\"dweb:/ipfs/QmenyEkbhq6B8R7PzbkVaNAJRibQSiE4RN76bFfdZgCd3c\"]},\"/home/ohm/dev/dsb/121-smart-contracts/contracts/libraries/Ownable.sol\":{\"keccak256\":\"0x5ce946af138b640244f778924727be4ee154f02a9d303dc065d250e30b2f49ed\",\"urls\":[\"bzzr://6f884951f134e4d5e4c654a2012190a401adccda8ea8d40d521f914176b2da55\",\"dweb:/ipfs/QmNncdesqscVneVdyKbZTKhQJXZ267QRxHjbc91Ky6wiaT\"]}},\"version\":1}",
+  "bytecode": "0x60806040819052600080546001600160a01b03191633178082556001600160a01b0316917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a36103a5806100576000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c8063715018a61461005c5780638da5cb5b146100665780638f32d59b1461008a578063f2fde38b146100a6578063f80a1a9b146100cc575b600080fd5b6100646100f5565b005b61006e610198565b604080516001600160a01b039092168252519081900360200190f35b6100926101a7565b604080519115158252519081900360200190f35b610064600480360360208110156100bc57600080fd5b50356001600160a01b03166101b8565b610064600480360360608110156100e257600080fd5b508035906020810135906040013561021d565b6100fd6101a7565b61014e576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b6000546001600160a01b031690565b6000546001600160a01b0316331490565b6101c06101a7565b610211576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b61021a816102aa565b50565b6102256101a7565b610276576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b8082847f8a684cc1c558b9261ab82980e5c78c4a021955b74d79421d7aa32a00ab6583f860405160405180910390a4505050565b6001600160a01b0381166102ef5760405162461bcd60e51b815260040180806020018281038252602681526020018061034b6026913960400191505060405180910390fd5b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b039290921691909117905556fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a265627a7a72305820c1cd0c49f34e8628ea455385f2be292a7ec2147c780a64bc080e6c75e81d9dec64736f6c634300050a0032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c8063715018a61461005c5780638da5cb5b146100665780638f32d59b1461008a578063f2fde38b146100a6578063f80a1a9b146100cc575b600080fd5b6100646100f5565b005b61006e610198565b604080516001600160a01b039092168252519081900360200190f35b6100926101a7565b604080519115158252519081900360200190f35b610064600480360360208110156100bc57600080fd5b50356001600160a01b03166101b8565b610064600480360360608110156100e257600080fd5b508035906020810135906040013561021d565b6100fd6101a7565b61014e576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b6000546001600160a01b031690565b6000546001600160a01b0316331490565b6101c06101a7565b610211576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b61021a816102aa565b50565b6102256101a7565b610276576040805162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572604482015290519081900360640190fd5b8082847f8a684cc1c558b9261ab82980e5c78c4a021955b74d79421d7aa32a00ab6583f860405160405180910390a4505050565b6001600160a01b0381166102ef5760405162461bcd60e51b815260040180806020018281038252602681526020018061034b6026913960400191505060405180910390fd5b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b039290921691909117905556fe4f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373a265627a7a72305820c1cd0c49f34e8628ea455385f2be292a7ec2147c780a64bc080e6c75e81d9dec64736f6c634300050a0032",
+  "sourceMap": "209:769:1:-;;;;;481:6:3;:19;;-1:-1:-1;;;;;;481:19:3;490:10;481:19;;;;-1:-1:-1;;;;;548:6:3;;515:40;;481:6;;515:40;209:769:1;;;;;;",
+  "deployedSourceMap": "209:769:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;209:769:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1421:137:3;;;:::i;:::-;;638:77;;;:::i;:::-;;;;-1:-1:-1;;;;;638:77:3;;;;;;;;;;;;;;989:90;;;:::i;:::-;;;;;;;;;;;;;;;;;;1707:107;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1707:107:3;-1:-1:-1;;;;;1707:107:3;;:::i;757:219:1:-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;757:219:1;;;;;;;;;;;;:::i;1421:137:3:-;842:9;:7;:9::i;:::-;834:54;;;;;-1:-1:-1;;;834:54:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1519:1;1503:6;;1482:40;;-1:-1:-1;;;;;1503:6:3;;;;1482:40;;1519:1;;1482:40;1549:1;1532:19;;-1:-1:-1;;;;;;1532:19:3;;;1421:137::o;638:77::-;676:7;702:6;-1:-1:-1;;;;;702:6:3;638:77;:::o;989:90::-;1029:4;1066:6;-1:-1:-1;;;;;1066:6:3;1052:10;:20;;989:90::o;1707:107::-;842:9;:7;:9::i;:::-;834:54;;;;;-1:-1:-1;;;834:54:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1779:28;1798:8;1779:18;:28::i;:::-;1707:107;:::o;757:219:1:-;842:9:3;:7;:9::i;:::-;834:54;;;;;-1:-1:-1;;;834:54:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;959:9:1;945:12;934:9;922:47;;;;;;;;;;757:219;;;:::o;1915:225:3:-;-1:-1:-1;;;;;1988:22:3;;1980:73;;;;-1:-1:-1;;;1980:73:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2089:6;;;2068:38;;-1:-1:-1;;;;;2068:38:3;;;;2089:6;;;2068:38;;;2116:6;:17;;-1:-1:-1;;;;;;2116:17:3;-1:-1:-1;;;;;2116:17:3;;;;;;;;;;1915:225::o",
+  "source": "pragma solidity ^0.5.10;\n\nimport \"./libraries/Ownable.sol\";\n/**\n * @title ExchangeLogger\n * @author Disberse LTD\n * @notice Contract for logging exchange rates for particular burn events\n * asynchronously\n */\ncontract ExchangeLogger is Ownable {\n\n    event LogExchange(\n        bytes32 indexed burnHash,\n        bytes32 indexed dstCurrency,\n        uint256 indexed dstValue\n    );\n\n    /**\n     * @dev Logs data related to an external currency conversion after a redeem\n     * @param _burnHash The identifier of the specific burn event correlated\n     * with the currency conversion\n     * @param _dstCurrency The currency that the funds were converted into\n     * @param _dstValue The value of the transferred funds, denominated in dstCurrency\n     */\n    function logExchange(\n        bytes32 _burnHash,\n        bytes32 _dstCurrency,\n        uint256 _dstValue\n    )\n        external\n        onlyOwner\n    {\n        emit LogExchange(_burnHash, _dstCurrency, _dstValue);\n    }\n}\n",
+  "sourcePath": "/home/ohm/dev/dsb/121-smart-contracts/contracts/ExchangeLogger.sol",
+  "ast": {
+    "absolutePath": "/home/ohm/dev/dsb/121-smart-contracts/contracts/ExchangeLogger.sol",
+    "exportedSymbols": {
+      "ExchangeLogger": [
+        655
+      ]
+    },
+    "id": 656,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 625,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "absolutePath": "/home/ohm/dev/dsb/121-smart-contracts/contracts/libraries/Ownable.sol",
+        "file": "./libraries/Ownable.sol",
+        "id": 626,
+        "nodeType": "ImportDirective",
+        "scope": 656,
+        "sourceUnit": 824,
+        "src": "26:33:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 627,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 823,
+              "src": "236:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$823",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 628,
+            "nodeType": "InheritanceSpecifier",
+            "src": "236:7:1"
+          }
+        ],
+        "contractDependencies": [
+          823
+        ],
+        "contractKind": "contract",
+        "documentation": "@title ExchangeLogger\n@author Disberse LTD\n@notice Contract for logging exchange rates for particular burn events\nasynchronously",
+        "fullyImplemented": true,
+        "id": 655,
+        "linearizedBaseContracts": [
+          655,
+          823
+        ],
+        "name": "ExchangeLogger",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 636,
+            "name": "LogExchange",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 635,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 630,
+                  "indexed": true,
+                  "name": "burnHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 636,
+                  "src": "278:24:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 629,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "278:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 632,
+                  "indexed": true,
+                  "name": "dstCurrency",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 636,
+                  "src": "312:27:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 631,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "312:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 634,
+                  "indexed": true,
+                  "name": "dstValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 636,
+                  "src": "349:24:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 633,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "349:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "268:111:1"
+            },
+            "src": "251:129:1"
+          },
+          {
+            "body": {
+              "id": 653,
+              "nodeType": "Block",
+              "src": "907:69:1",
+              "statements": [
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 648,
+                        "name": "_burnHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 638,
+                        "src": "934:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 649,
+                        "name": "_dstCurrency",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 640,
+                        "src": "945:12:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 650,
+                        "name": "_dstValue",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 642,
+                        "src": "959:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 647,
+                      "name": "LogExchange",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 636,
+                      "src": "922:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_bytes32_$_t_uint256_$returns$__$",
+                        "typeString": "function (bytes32,bytes32,uint256)"
+                      }
+                    },
+                    "id": 651,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "922:47:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 652,
+                  "nodeType": "EmitStatement",
+                  "src": "917:52:1"
+                }
+              ]
+            },
+            "documentation": "@dev Logs data related to an external currency conversion after a redeem\n@param _burnHash The identifier of the specific burn event correlated\nwith the currency conversion\n@param _dstCurrency The currency that the funds were converted into\n@param _dstValue The value of the transferred funds, denominated in dstCurrency",
+            "id": 654,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 645,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 644,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 756,
+                  "src": "893:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "893:9:1"
+              }
+            ],
+            "name": "logExchange",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 643,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 638,
+                  "name": "_burnHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 654,
+                  "src": "787:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 637,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "787:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 640,
+                  "name": "_dstCurrency",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 654,
+                  "src": "814:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 639,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "814:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 642,
+                  "name": "_dstValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 654,
+                  "src": "844:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 641,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "844:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "777:90:1"
+            },
+            "returnParameters": {
+              "id": 646,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "907:0:1"
+            },
+            "scope": 655,
+            "src": "757:219:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 656,
+        "src": "209:769:1"
+      }
+    ],
+    "src": "0:979:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/ohm/dev/dsb/121-smart-contracts/contracts/ExchangeLogger.sol",
+    "exportedSymbols": {
+      "ExchangeLogger": [
+        655
+      ]
+    },
+    "id": 656,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 625,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "absolutePath": "/home/ohm/dev/dsb/121-smart-contracts/contracts/libraries/Ownable.sol",
+        "file": "./libraries/Ownable.sol",
+        "id": 626,
+        "nodeType": "ImportDirective",
+        "scope": 656,
+        "sourceUnit": 824,
+        "src": "26:33:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 627,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 823,
+              "src": "236:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$823",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 628,
+            "nodeType": "InheritanceSpecifier",
+            "src": "236:7:1"
+          }
+        ],
+        "contractDependencies": [
+          823
+        ],
+        "contractKind": "contract",
+        "documentation": "@title ExchangeLogger\n@author Disberse LTD\n@notice Contract for logging exchange rates for particular burn events\nasynchronously",
+        "fullyImplemented": true,
+        "id": 655,
+        "linearizedBaseContracts": [
+          655,
+          823
+        ],
+        "name": "ExchangeLogger",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 636,
+            "name": "LogExchange",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 635,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 630,
+                  "indexed": true,
+                  "name": "burnHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 636,
+                  "src": "278:24:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 629,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "278:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 632,
+                  "indexed": true,
+                  "name": "dstCurrency",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 636,
+                  "src": "312:27:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 631,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "312:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 634,
+                  "indexed": true,
+                  "name": "dstValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 636,
+                  "src": "349:24:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 633,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "349:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "268:111:1"
+            },
+            "src": "251:129:1"
+          },
+          {
+            "body": {
+              "id": 653,
+              "nodeType": "Block",
+              "src": "907:69:1",
+              "statements": [
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 648,
+                        "name": "_burnHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 638,
+                        "src": "934:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 649,
+                        "name": "_dstCurrency",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 640,
+                        "src": "945:12:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 650,
+                        "name": "_dstValue",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 642,
+                        "src": "959:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 647,
+                      "name": "LogExchange",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 636,
+                      "src": "922:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_bytes32_$_t_uint256_$returns$__$",
+                        "typeString": "function (bytes32,bytes32,uint256)"
+                      }
+                    },
+                    "id": 651,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "922:47:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 652,
+                  "nodeType": "EmitStatement",
+                  "src": "917:52:1"
+                }
+              ]
+            },
+            "documentation": "@dev Logs data related to an external currency conversion after a redeem\n@param _burnHash The identifier of the specific burn event correlated\nwith the currency conversion\n@param _dstCurrency The currency that the funds were converted into\n@param _dstValue The value of the transferred funds, denominated in dstCurrency",
+            "id": 654,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 645,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 644,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 756,
+                  "src": "893:9:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "893:9:1"
+              }
+            ],
+            "name": "logExchange",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 643,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 638,
+                  "name": "_burnHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 654,
+                  "src": "787:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 637,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "787:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 640,
+                  "name": "_dstCurrency",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 654,
+                  "src": "814:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 639,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "814:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 642,
+                  "name": "_dstValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 654,
+                  "src": "844:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 641,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "844:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "777:90:1"
+            },
+            "returnParameters": {
+              "id": 646,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "907:0:1"
+            },
+            "scope": 655,
+            "src": "757:219:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 656,
+        "src": "209:769:1"
+      }
+    ],
+    "src": "0:979:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.10+commit.5a6ea5b1.Emscripten.clang"
+  },
+  "networks": {
+    "1337": {
+      "events": {
+        "0x8a684cc1c558b9261ab82980e5c78c4a021955b74d79421d7aa32a00ab6583f8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "burnHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "dstCurrency",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "dstValue",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogExchange",
+          "type": "event",
+          "signature": "0x8a684cc1c558b9261ab82980e5c78c4a021955b74d79421d7aa32a00ab6583f8"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event",
+          "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
+        }
+      },
+      "links": {},
+      "address": "0x6c35E0F7251b2c0eCD63340d96819b5B903f6213",
+      "transactionHash": "0x8758adeb2de86c92cce244ea8211b5a6b1bcd157a2bab4c419c6202024618a5a"
+    },
+    "1566754887571": {
+      "events": {
+        "0x8a684cc1c558b9261ab82980e5c78c4a021955b74d79421d7aa32a00ab6583f8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "burnHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "dstCurrency",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "dstValue",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogExchange",
+          "type": "event",
+          "signature": "0x8a684cc1c558b9261ab82980e5c78c4a021955b74d79421d7aa32a00ab6583f8"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event",
+          "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
+        }
+      },
+      "links": {},
+      "address": "0xa4Ad92E8Ce8b564505275c98D50F500e164EDBaB",
+      "transactionHash": "0xfaf7e35ca2303d6cd1f783b49074fc33258cd04cc05457005ec65006c537daa7"
+    }
+  },
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-08-25T19:51:02.223Z",
+  "devdoc": {
+    "author": "Disberse LTD",
+    "methods": {
+      "isOwner()": {
+        "details": "Returns true if the caller is the current owner."
+      },
+      "logExchange(bytes32,bytes32,uint256)": {
+        "details": "Logs data related to an external currency conversion after a redeem",
+        "params": {
+          "_burnHash": "The identifier of the specific burn event correlated with the currency conversion",
+          "_dstCurrency": "The currency that the funds were converted into",
+          "_dstValue": "The value of the transferred funds, denominated in dstCurrency"
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "title": "ExchangeLogger"
+  },
+  "userdoc": {
+    "methods": {},
+    "notice": "Contract for logging exchange rates for particular burn events asynchronously"
+  }
+}

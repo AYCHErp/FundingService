@@ -1,0 +1,588 @@
+{
+  "contractName": "Bootstrapper",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "name": "_runtimeCode",
+          "type": "bytes"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "bootstrap",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.10+commit.5a6ea5b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"bootstrap\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"_runtimeCode\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"author\":\"Disberse LTD\",\"details\":\"runtimeCode shold be the desired runtime code. It is cheaper to make this a `constant` value (see `Bootstrap.sol`), but using storage is more convenient for deployment and testing.\",\"methods\":{\"bootstrap()\":{\"details\":\"Returns the runtimeCode\",\"return\":\"The runtimeCode byte array\"}},\"title\":\"Bootstrapper\"},\"userdoc\":{\"methods\":{},\"notice\":\"Returns an arbitrary bytes value to supply runtime code for an indeterminate CREATE2 contract.\"}},\"settings\":{\"compilationTarget\":{\"/home/ohm/dev/dsb/smart-contracts/contracts/factory/Bootstrapper.sol\":\"Bootstrapper\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/ohm/dev/dsb/smart-contracts/contracts/factory/Bootstrapper.sol\":{\"keccak256\":\"0x8c5900ac5034bd91efa8f957873ac17fe3b64b68877dabce260f7578cd4862e7\",\"urls\":[\"bzzr://65db9cf33812e0dd9801ea6264a712629d65485dd99812b350d203e10c4aded3\",\"dweb:/ipfs/QmX1gqtQMKxR2zQRNbVVZRwJMEtG8dyc7i5BeynWz2AJ9F\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516102bb3803806102bb8339818101604052602081101561003357600080fd5b81019080805164010000000081111561004b57600080fd5b8201602081018481111561005e57600080fd5b815164010000000081118282018710171561007857600080fd5b505080519093506100929250600091506020840190610099565b5050610134565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100da57805160ff1916838001178555610107565b82800160010185558215610107579182015b828111156101075782518255916020019190600101906100ec565b50610113929150610117565b5090565b61013191905b80821115610113576000815560010161011d565b90565b610178806101436000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063fb969b0a14610030575b600080fd5b6100386100ad565b6040805160208082528351818301528351919283929083019185019080838360005b8381101561007257818101518382015260200161005a565b50505050905090810190601f16801561009f5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60008054604080516020601f60026000196101006001881615020190951694909404938401819004810282018101909252828152606093909290918301828280156101395780601f1061010e57610100808354040283529160200191610139565b820191906000526020600020905b81548152906001019060200180831161011c57829003601f168201915b505050505090509056fea265627a7a723058204acd782390c6a538bff078d36965a5a9ff5c33079c7b24f143a0109196d384f964736f6c634300050a0032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c8063fb969b0a14610030575b600080fd5b6100386100ad565b6040805160208082528351818301528351919283929083019185019080838360005b8381101561007257818101518382015260200161005a565b50505050905090810190601f16801561009f5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60008054604080516020601f60026000196101006001881615020190951694909404938401819004810282018101909252828152606093909290918301828280156101395780601f1061010e57610100808354040283529160200191610139565b820191906000526020600020905b81548152906001019060200180831161011c57829003601f168201915b505050505090509056fea265627a7a723058204acd782390c6a538bff078d36965a5a9ff5c33079c7b24f143a0109196d384f964736f6c634300050a0032",
+  "sourceMap": "384:461:4:-;;;523:101;8:9:-1;5:2;;;30:1;27;20:12;5:2;523:101:4;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;523:101:4;;;;;;19:11:-1;14:3;11:20;8:2;;;44:1;41;34:12;8:2;62:21;;123:4;114:14;;138:31;;;135:2;;;182:1;179;172:12;135:2;213:10;;261:11;244:29;;285:43;;;282:58;-1:-1;233:115;230:2;;;361:1;358;351:12;230:2;-1:-1;;591:26:4;;523:101;;-1:-1:-1;591:26:4;;-1:-1:-1;591:11:4;;-1:-1:-1;591:26:4;;;;;:::i;:::-;;523:101;384:461;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;384:461:4;;;-1:-1:-1;384:461:4;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "384:461:4:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;384:461:4;;;;;;;;;;;;;;;;;;;723:119;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:100:-1;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;723:119:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;824:11;817:18;;;;;;;;-1:-1:-1;;817:18:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;789:12;;817:18;;824:11;;817:18;;824:11;817:18;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;723:119;:::o",
+  "source": "pragma solidity ^0.5.10;\n\n/**\n * @title Bootstrapper\n * @author Disberse LTD\n * @notice Returns an arbitrary bytes value to supply runtime code for an indeterminate\n * CREATE2 contract.\n * @dev runtimeCode shold be the desired runtime code. It is cheaper to make\n * this a `constant` value (see `Bootstrap.sol`), but using storage is more\n * convenient for deployment and testing.\n*/\ncontract Bootstrapper {\n\n    /**\n     * @dev The **runtime**  code to return from `bootstrap`\n     */\n    bytes internal runtimeCode;\n\n    constructor(bytes memory _runtimeCode)\n        public\n    {\n        runtimeCode = _runtimeCode;\n    }\n\n    /**\n     * @dev Returns the runtimeCode\n     * @return The runtimeCode byte array\n    */\n    function bootstrap()\n        public\n        view\n        returns (bytes memory)\n    {\n        return runtimeCode;\n    }\n\n}\n",
+  "sourcePath": "/home/ohm/dev/dsb/smart-contracts/contracts/factory/Bootstrapper.sol",
+  "ast": {
+    "absolutePath": "/home/ohm/dev/dsb/smart-contracts/contracts/factory/Bootstrapper.sol",
+    "exportedSymbols": {
+      "Bootstrapper": [
+        842
+      ]
+    },
+    "id": 843,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 821,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Bootstrapper\n@author Disberse LTD\n@notice Returns an arbitrary bytes value to supply runtime code for an indeterminate\nCREATE2 contract.\n@dev runtimeCode shold be the desired runtime code. It is cheaper to make\nthis a `constant` value (see `Bootstrap.sol`), but using storage is more\nconvenient for deployment and testing.",
+        "fullyImplemented": true,
+        "id": 842,
+        "linearizedBaseContracts": [
+          842
+        ],
+        "name": "Bootstrapper",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 823,
+            "name": "runtimeCode",
+            "nodeType": "VariableDeclaration",
+            "scope": 842,
+            "src": "490:26:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes_storage",
+              "typeString": "bytes"
+            },
+            "typeName": {
+              "id": 822,
+              "name": "bytes",
+              "nodeType": "ElementaryTypeName",
+              "src": "490:5:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes_storage_ptr",
+                "typeString": "bytes"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 832,
+              "nodeType": "Block",
+              "src": "581:43:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 830,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 828,
+                      "name": "runtimeCode",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 823,
+                      "src": "591:11:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_storage",
+                        "typeString": "bytes storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 829,
+                      "name": "_runtimeCode",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 825,
+                      "src": "605:12:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes memory"
+                      }
+                    },
+                    "src": "591:26:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage",
+                      "typeString": "bytes storage ref"
+                    }
+                  },
+                  "id": 831,
+                  "nodeType": "ExpressionStatement",
+                  "src": "591:26:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 833,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 826,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 825,
+                  "name": "_runtimeCode",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 833,
+                  "src": "535:25:4",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 824,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "535:5:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "534:27:4"
+            },
+            "returnParameters": {
+              "id": 827,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "581:0:4"
+            },
+            "scope": 842,
+            "src": "523:101:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 840,
+              "nodeType": "Block",
+              "src": "807:35:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 838,
+                    "name": "runtimeCode",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 823,
+                    "src": "824:11:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage",
+                      "typeString": "bytes storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 837,
+                  "id": 839,
+                  "nodeType": "Return",
+                  "src": "817:18:4"
+                }
+              ]
+            },
+            "documentation": "@dev Returns the runtimeCode\n@return The runtimeCode byte array",
+            "id": 841,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "bootstrap",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 834,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "741:2:4"
+            },
+            "returnParameters": {
+              "id": 837,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 836,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 841,
+                  "src": "789:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 835,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "789:5:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "788:14:4"
+            },
+            "scope": 842,
+            "src": "723:119:4",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 843,
+        "src": "384:461:4"
+      }
+    ],
+    "src": "0:846:4"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/ohm/dev/dsb/smart-contracts/contracts/factory/Bootstrapper.sol",
+    "exportedSymbols": {
+      "Bootstrapper": [
+        842
+      ]
+    },
+    "id": 843,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 821,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Bootstrapper\n@author Disberse LTD\n@notice Returns an arbitrary bytes value to supply runtime code for an indeterminate\nCREATE2 contract.\n@dev runtimeCode shold be the desired runtime code. It is cheaper to make\nthis a `constant` value (see `Bootstrap.sol`), but using storage is more\nconvenient for deployment and testing.",
+        "fullyImplemented": true,
+        "id": 842,
+        "linearizedBaseContracts": [
+          842
+        ],
+        "name": "Bootstrapper",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 823,
+            "name": "runtimeCode",
+            "nodeType": "VariableDeclaration",
+            "scope": 842,
+            "src": "490:26:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes_storage",
+              "typeString": "bytes"
+            },
+            "typeName": {
+              "id": 822,
+              "name": "bytes",
+              "nodeType": "ElementaryTypeName",
+              "src": "490:5:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes_storage_ptr",
+                "typeString": "bytes"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 832,
+              "nodeType": "Block",
+              "src": "581:43:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 830,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 828,
+                      "name": "runtimeCode",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 823,
+                      "src": "591:11:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_storage",
+                        "typeString": "bytes storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 829,
+                      "name": "_runtimeCode",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 825,
+                      "src": "605:12:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes memory"
+                      }
+                    },
+                    "src": "591:26:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage",
+                      "typeString": "bytes storage ref"
+                    }
+                  },
+                  "id": 831,
+                  "nodeType": "ExpressionStatement",
+                  "src": "591:26:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 833,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 826,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 825,
+                  "name": "_runtimeCode",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 833,
+                  "src": "535:25:4",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 824,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "535:5:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "534:27:4"
+            },
+            "returnParameters": {
+              "id": 827,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "581:0:4"
+            },
+            "scope": 842,
+            "src": "523:101:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 840,
+              "nodeType": "Block",
+              "src": "807:35:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 838,
+                    "name": "runtimeCode",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 823,
+                    "src": "824:11:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage",
+                      "typeString": "bytes storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 837,
+                  "id": 839,
+                  "nodeType": "Return",
+                  "src": "817:18:4"
+                }
+              ]
+            },
+            "documentation": "@dev Returns the runtimeCode\n@return The runtimeCode byte array",
+            "id": 841,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "bootstrap",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 834,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "741:2:4"
+            },
+            "returnParameters": {
+              "id": 837,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 836,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 841,
+                  "src": "789:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 835,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "789:5:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "788:14:4"
+            },
+            "scope": 842,
+            "src": "723:119:4",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 843,
+        "src": "384:461:4"
+      }
+    ],
+    "src": "0:846:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.10+commit.5a6ea5b1.Emscripten.clang"
+  },
+  "networks": {
+    "1337": {
+      "events": {},
+      "links": {},
+      "address": "0xaa67cAeaF48b694C2cDF04779ED86A6913874D71",
+      "transactionHash": "0x9e51d9796ee0f4375bf9e4b997999cd13873fe9695f5e9b2bcb23f5d7cb56ac8"
+    },
+    "1565226248741": {
+      "events": {},
+      "links": {},
+      "address": "0xdE9230575e4136cACb586D0c8282fbC30F7ec580",
+      "transactionHash": "0xb26917625f8ef48ac54b73fd192287af54a629393cfea04d263251ab55660243"
+    },
+    "1565226398511": {
+      "events": {},
+      "links": {},
+      "address": "0x11B7dDd747273b05CF155D7d0ed0861CEf3f4461",
+      "transactionHash": "0xa4af77bb7e7fca8bcf28ab7771249c4b2696afcba7d72f148e7e953aa9849327"
+    },
+    "1566004426144": {
+      "events": {},
+      "links": {},
+      "address": "0xA204599c8E1796924dA530c0a89019A7eb71C7E4",
+      "transactionHash": "0xc7d51cbf3e6eec04025dcc558733902f037d5c676c7b78703efa488391c6fd6d"
+    }
+  },
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-08-24T22:06:59.792Z",
+  "devdoc": {
+    "author": "Disberse LTD",
+    "details": "runtimeCode shold be the desired runtime code. It is cheaper to make this a `constant` value (see `Bootstrap.sol`), but using storage is more convenient for deployment and testing.",
+    "methods": {
+      "bootstrap()": {
+        "details": "Returns the runtimeCode",
+        "return": "The runtimeCode byte array"
+      }
+    },
+    "title": "Bootstrapper"
+  },
+  "userdoc": {
+    "methods": {},
+    "notice": "Returns an arbitrary bytes value to supply runtime code for an indeterminate CREATE2 contract."
+  }
+}
