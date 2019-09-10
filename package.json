@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "deps:compose": "docker-compose up -d",
+    "deps:copy": "docker cp bchain:/home/node/artifacts/ . && docker cp bchain:/home/node/config .",
+    "deps:start": "npm run deps:compose && npm run deps:copy",
+    "deps:close": "docker-compose down",
+    "start:devl": "node server.js",
+    "start:be": "npm -s run deps:start && npm -s run start:devl",
+    "start:1": "MIGRATION=1 npm run start:be",
+    "start:2": "MIGRATION=2 npm run start:be",
+    "start": "npm run start:2"
   },
   "keywords": [],
   "author": "",
@@ -13,9 +21,6 @@
   "dependencies": {
     "@hapi/boom": "^7.4.3",
     "@hapi/hapi": "^18.3.2",
-    "@hapi/hoek": "^8.2.1",
-    "async": "^3.1.0",
-    "ethers": "^4.0.36",
-    "nano": "^8.1.0"
+    "ethers": "^4.0.36"
   }
 }
