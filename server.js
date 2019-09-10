@@ -21,6 +21,6 @@ const setRoutes = () => {
     console.log('Server running at:', server.info.uri);
   } catch(err) {
     console.error(err);
-    process.exit(ex.code || 1);
+    process.exit(err.code || 1);
   }
 })();
