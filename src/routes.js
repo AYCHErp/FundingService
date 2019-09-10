@@ -27,7 +27,6 @@ routes.push({
   path: "/funding/{address}/{since_timestamp?}",
   handler: async (request, h) => {
     try {
-      console.log('request:', request.params);
       const fromTs = request.params.since_timestamp ? request.params.since_timestamp : 0
       return await bChainHandler.getBurnedFunds(
         Number(fromTs),

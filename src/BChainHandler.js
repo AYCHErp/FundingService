@@ -5,7 +5,7 @@ const Boom =  require("@hapi/boom");
 
 class BChainHandler {
 
-  // TODO: fix bug with decimal places
+  // TODO: clear up decimal places
   constructor(provider, exchangeLogger, tokens = []) {
     Object.defineProperties(this, {
       _provider       : {value: provider},
@@ -103,18 +103,13 @@ class BChainHandler {
     // pad address to 32 bytes
     const src = "0x" + "0".repeat(24) + _src.substr(2).toLowerCase();
 
-    console.log('src', src);
-
     const topics = [ evntSig.topic, src, bin ];
-    const logs = await this.provider.getLogs({
+    return this.provider.getLogs({
       fromBlock: fromBlock,
       toBlock: "latest",
       address: tokenContract.address,
       topics: topics
     });
-
-    console.log('logs', logs);
-    return logs;
   }
 
   /**
@@ -168,28 +163,17 @@ class BChainHandler {
       throw Boom.internal(`from_timestamp invalid: ${fromTs}`)
     }
 
-    console.log('from_block', fromBlock);
-
-    // dor
     let burns = [];
     for (const token of this._tokens) {
-      console.log('token.contract.address', token.contract.address);
-      console.log('token.symbol', token.symbol);
       const tokenBurnEvents = await this._getBurnEvents(token.contract, fromBlock, src, bin);
 
-      console.log('tokenBurnEvents', tokenBurnEvents);
-
       tokenBurnEvents.forEach(evnt => {
-        console.log('evnt', evnt);
         burns.push({
           symbol: token.symbol,
           evnt: evnt
         });
       });
     }
-
-    // console.log('this._tokes', this._tokens);
-    console.log('burns', burns);
 
     let burnedFunds = [];
     for (const burn of burns) {
@@ -198,33 +182,19 @@ class BChainHandler {
 
       let value;
       let symbol;
-      // if (exchangeEvent.length === 1) {
-      console.log("exchangeEvent", exchangeEvent)
       if (exchangeEvent) {
         value = ethers.utils.bigNumberify(exchangeEvent.data).toString();
         symbol = ethers.utils.toUtf8String(exchangeEvent.topics[2]);
       } else {
-        console.log('burn.evnt', ethers.utils.bigNumberify(burn.evnt.data).toString());
         value = ethers.utils.bigNumberify(burn.evnt.data).toString();
         symbol = burn.symbol
       }
 
-      console.log('value', value);
-
       const fundsRedeemed = {
-        // TODO:
-        // adjust for the token contract decimal places
-        // value: value.slice(0, -18),
         value: value,
         currency: symbol.substr(0,3),
         timestamp: (await this._provider.getBlock(burn.evnt.blockNumber)).timestamp
       }
-
-      // const fundsRedeemed = exchangeEvent.length === 1 ?
-      //   {amount: ethers.utils.bigNumberify(exchangeEvent[0].data).toString(), currency: exchangeEvent[0].topics[2]} :
-      //   {amount: ethers.utils.bigNumberify(evnt.data).toString(), currency: this._token.currency.toString("utf8")};
-
-      console.log('fundsRedeemed', fundsRedeemed);
 
       burnedFunds.push(fundsRedeemed);
     }
