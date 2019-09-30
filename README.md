@@ -4,7 +4,7 @@ Provides an API to determine the funds that have been devoted to the 121-Project
 # Usage
 Exposes an endpoint for GET requests at `/funding/{account_id}/{since_timestamp?}` (since\_timestamp defaults to 0 if omitted).
 
-This service provides access to data from the Disberse platform, so it's usage in a development environment is reliant on seed data. This seed data was generated using [Disberse/121-smart-contracts](https://github.com/Disberse/121-smart-contracts) and is available in a docker image ([disberse/121-bchain](https://cloud.docker.com/repository/registry-1.docker.io/disberse/121-bchain)).
+This service provides access to data from the Disberse platform, so it's usage in a development environment is reliant on seed data. This seed data was generated using [global-121/disberse-smart-contracts](https://github.com/global-121/disberse-smart-contracts) and is available in a docker image ([disberse/121-bchain](https://cloud.docker.com/repository/registry-1.docker.io/disberse/121-bchain)).
 
 #### Dependencies
 - `node`
