@@ -62,13 +62,13 @@ class BChainHandler {
     }
 
     if (ts > midTs) {
-      return await this._timestampSearch(ts, midBlock, endBlock);
+      return await this._blockSearch(ts, midBlock, endBlock);
     }
 
-    return await this._timestampSearch(ts, startBlock, midBlock);
+    return await this._blockSearch(ts, startBlock, midBlock);
   }
 
-  // TODO: there should be a better way to do this
+  // TODO: there is 100% a better way to do this
   /**
    * Takes a from_timestamp and returns the closest from_block
    * @param {Uint} ts: The timestamp to get the block number for
@@ -83,7 +83,9 @@ class BChainHandler {
     const latestBlock = await this._provider.getBlock("latest");
     const latestTs = latestBlock.timestamp;
 
-    if (ts > latestTs) { return "INVALID" }
+    if (ts > latestTs) {
+      return "INVALID"
+    }
 
     return this._blockSearch(ts, 1, latestBlock.number);
   }
@@ -160,7 +162,7 @@ class BChainHandler {
     const fromBlock = await this._timestampToBlockNum(fromTs);
 
     if (fromBlock === "INVALID") {
-      throw Boom.internal(`from_timestamp invalid: ${fromTs}`)
+      throw Boom.notFound(`from_timestamp invalid: ${fromTs}`)
     }
 
     let burns = [];
@@ -191,6 +193,7 @@ class BChainHandler {
       }
 
       const fundsRedeemed = {
+        tag: hash,
         value: value,
         currency: symbol.substr(0,3),
         timestamp: (await this._provider.getBlock(burn.evnt.blockNumber)).timestamp

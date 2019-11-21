@@ -1,11 +1,12 @@
 "use strict"
 
 const fs = require("fs");
+const Joi = require("@hapi/joi");
+const ethers = require("ethers");
 const config = JSON.parse(fs.readFileSync("./config/migrationsConfig.json", "utf8"));
 const addresses = config["migration_" + process.env.MIGRATION];
 
 const BChainHandler = require("./BChainHandler.js");
-const ethers = require("ethers");
 const Token = require("../artifacts/DisberseToken.json").abi;
 const ExchangeLogger = require("../artifacts/ExchangeLogger.json").abi;
 
@@ -18,13 +19,34 @@ const bChainHandler = new BChainHandler(provider, exchangeLogger, tokens);
 const BIN_NAME = "0x" + Buffer.from("121-project").toString("hex")
 const bin = ethers.utils.keccak256(BIN_NAME);
 
-const routes = [];
+const baseRoute = "/funding";
 
 console.log(`\n\nSeeded user address: ${addresses.userAddr}`);
 
+const validationFailAction = (request, h, err) => {
+  console.log("Validation Error:", err.message)
+  throw err
+}
+
+let routes = [];
+
 routes.push({
   method: "GET",
-  path: "/funding/{address}/{since_timestamp?}",
+  path: baseRoute + "/{address}/{since_timestamp?}",
+  config: {
+    validate: {
+      failAction: validationFailAction,
+      params: Joi.object({
+        address: Joi.string()
+          .alphanum()
+          .pattern(/^0x[a-fA-F0-9]{40}$/)
+          .required(),
+        since_timestamp: Joi.number()
+          .integer()
+          .min(0)
+      })
+    },
+  },
   handler: async (request, h) => {
     try {
       const fromTs = request.params.since_timestamp ? request.params.since_timestamp : 0
