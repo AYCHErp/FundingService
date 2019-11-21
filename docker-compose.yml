@@ -2,8 +2,8 @@ version: "3.5"
 
 services:
 
-  bchain:
+  disberse-121-bchain:
     image: disberse/121-bchain
-    container_name: bchain
+    container_name: disberse-121-bchain
     ports:
       - "8545:8545"

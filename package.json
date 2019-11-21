@@ -1,12 +1,12 @@
 {
-  "name": "hapi-tut",
-  "version": "1.0.0",
+  "name": "121-funding-service",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deps:compose": "docker-compose up -d",
-    "deps:copy": "docker cp bchain:/home/node/artifacts/ . && docker cp bchain:/home/node/config .",
+    "deps:copy": "docker cp disberse-121-bchain:/home/node/artifacts/ . && docker cp disberse-121-bchain:/home/node/config .",
     "deps:start": "npm run deps:compose && npm run deps:copy",
     "deps:close": "docker-compose down",
     "start:devl": "node server.js",
