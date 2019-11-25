@@ -32,7 +32,7 @@ let routes = [];
 
 routes.push({
   method: "GET",
-  path: baseRoute + "/{address}/{since_timestamp?}",
+  path: baseRoute + "/burned/{address}/{since_timestamp?}",
   config: {
     validate: {
       failAction: validationFailAction,
@@ -52,6 +52,34 @@ routes.push({
       const fromTs = request.params.since_timestamp ? request.params.since_timestamp : 0
       return await bChainHandler.getBurnedFunds(
         Number(fromTs),
+        request.params.address,
+        bin
+      );
+    } catch(err) {
+      console.log(err)
+      throw(err)
+    }
+  }
+});
+
+
+routes.push({
+  method: "GET",
+  path: baseRoute + "/active/{address}",
+  config: {
+    validate: {
+      failAction: validationFailAction,
+      params: Joi.object({
+        address: Joi.string()
+          .alphanum()
+          .pattern(/^0x[a-fA-F0-9]{40}$/)
+          .required()
+      })
+    },
+  },
+  handler: async (request, h) => {
+    try {
+      return await bChainHandler.getBalance(
         request.params.address,
         bin
       );
