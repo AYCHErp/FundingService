@@ -204,6 +204,29 @@ class BChainHandler {
 
     return burnedFunds;
   }
+
+  // TODO: if address passes the regex but is not a valid eth address,
+  // ethers.js will try to use it as an ENS name and fail opaquely
+  /**
+   * Returns the balance of the account in all registered token contracts
+   * @param {String} src: The address of interest (20 bytes hex)
+   * @param {String} bin: The bin of interest (32 bytes hex)
+   */
+  async getBalance(src, bin) {
+
+    let balances = [];
+    for (const token of this._tokens) {
+      const balance = await token.contract.balanceOf(src, bin);
+      balances.push({
+        // TODO
+        // tag = 
+        value: balance.toString(),
+        currency: token.symbol
+      })
+    }
+
+    return balances;
+  }
 }
 
 module.exports = exports = BChainHandler;
