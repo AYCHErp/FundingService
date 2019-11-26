@@ -62,7 +62,6 @@ routes.push({
   }
 });
 
-
 routes.push({
   method: "GET",
   path: baseRoute + "/active/{address}",

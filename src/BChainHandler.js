@@ -214,6 +214,16 @@ class BChainHandler {
    */
   async getBalance(src, bin) {
 
+    try {
+      // this will throw an error if the address does not have a proper checksum
+      // If we dont check this, ethers tries to use an incorrectly checksummed 
+      // address as an ENS name
+      ethers.utils.getAddress(src);
+    } catch (err) {
+      console.log(err);
+      throw Boom.notFound(`Invalid address checksum: ${src}`)
+    }
+
     let balances = [];
     for (const token of this._tokens) {
       const balance = await token.contract.balanceOf(src, bin);
